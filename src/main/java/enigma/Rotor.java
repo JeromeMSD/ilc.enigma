@@ -2,6 +2,8 @@ package enigma;
 
 public class Rotor extends GeneralRotor {
    
+    protected int[] bcipher = new int[ALPHA_SIZE];
+    
     public static Rotor rotorFactory(String str, String notches){
 	char[] s = str.trim().replace(" ", "").toCharArray();
 	int[] cipher = new int[ALPHA_SIZE];
@@ -30,7 +32,7 @@ public class Rotor extends GeneralRotor {
     }
 
     public int convertBackward(int e) {
-        return ((bcipher[((e+position)%ALPHA_SIZE+ALPHA_SIZE)%ALPHA_SIZE]-position)%ALPHA_SIZE+ALPHA_SIZE)%ALPHA_SIZE;
+        return ((bcipher[(e+position)%ALPHA_SIZE]-position) + ALPHA_SIZE)%ALPHA_SIZE;
     }
     
     protected void advance() {

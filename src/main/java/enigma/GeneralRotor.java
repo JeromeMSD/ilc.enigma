@@ -14,7 +14,6 @@ public class GeneralRotor {
     
     protected int position;
     protected int[] cipher = new int[ALPHA_SIZE];
-    protected int[] bcipher = new int[ALPHA_SIZE];
     protected int notch1 = -1;
     protected int notch2 = -1;
     
@@ -32,7 +31,7 @@ public class GeneralRotor {
     }
     
     public int convertForward(int p) {
-        return ((cipher[((p+position)%ALPHA_SIZE+ALPHA_SIZE)%ALPHA_SIZE]-position)%ALPHA_SIZE+ALPHA_SIZE)%ALPHA_SIZE;
+        return ((cipher[(p+position)%ALPHA_SIZE]-position) + ALPHA_SIZE)%ALPHA_SIZE;
     }
     
     public int getPosition() {
