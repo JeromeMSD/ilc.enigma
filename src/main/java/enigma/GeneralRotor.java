@@ -31,7 +31,7 @@ public class GeneralRotor {
     }
     
     public int convertForward(int p) {
-        return ((cipher[(p+position)%ALPHA_SIZE]-position) + ALPHA_SIZE)%ALPHA_SIZE;
+        return ((cipher[(p+position)%ALPHA_SIZE]));
     }
     
     public int getPosition() {

@@ -32,7 +32,7 @@ public class Rotor extends GeneralRotor {
     }
 
     public int convertBackward(int e) {
-        return ((bcipher[(e+position)%ALPHA_SIZE]-position) + ALPHA_SIZE)%ALPHA_SIZE;
+        return ((bcipher[(e+position)%ALPHA_SIZE]));
     }
     
     protected void advance() {
