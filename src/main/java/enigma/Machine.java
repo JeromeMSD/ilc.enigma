@@ -60,7 +60,7 @@ public class Machine {
 		}
                 else if (rightRotor.atNotch()) {
 			middleRotor.advance();
-			rightRotor.advance();
 		}
+                rightRotor.advance();
 	}
 }
