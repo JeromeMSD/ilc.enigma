@@ -16,35 +16,35 @@ public class Rotor {
         position = posn;
     }
     
-	public static Rotor rotorFactory(String str, String notches){
-		char[] s = str.trim().replace(" ", "").toCharArray();
-		int[] cipher = new int[26];
-		for (int i = 0; i< 26; i++){
-			cipher[i] = toIndex(s[i]);
-		}
-		s = notches.trim().replace(" and ", "").toCharArray();
+    public static Rotor rotorFactory(String str, String notches){
+	char[] s = str.trim().replace(" ", "").toCharArray();
+	int[] cipher = new int[26];
+	for (int i = 0; i< 26; i++){
+		cipher[i] = toIndex(s[i]);
+	}
+	s = notches.trim().replace(" and ", "").toCharArray();
 		if (s.length == 2){
-			return new Rotor(cipher, toIndex(s[0]), toIndex(s[1]));
-		} else {
-			return new Rotor(cipher, toIndex(s[0]));
-		}
+		return new Rotor(cipher, toIndex(s[0]), toIndex(s[1]));
+	} else {
+		return new Rotor(cipher, toIndex(s[0]));
+	}
 		
-	}
+    }
+
+    Rotor(int[] c, int notch1, int notch2) {
+	this.notch1 = notch1;
+	this.notch2 = notch2;
+	cipher = c;
+	createBCipher();
+    }
 	
-	Rotor(int[] c, int notch1, int notch2) {
-		this.notch1 = notch1;
-		this.notch2 = notch2;
-		cipher = c;
-		createBCipher();
-	}
-	
-	Rotor(int[] c, int notch1) {
-		this.notch1 = notch1;
-		cipher = c;
-		createBCipher();
-	}
+    Rotor(int[] c, int notch1) {
+	this.notch1 = notch1;
+	cipher = c;
+	createBCipher();
+    }
     
-        //NON UTILE ??
+    
     public int convertForward(int p) {
         return ((cipher[((p+position)%26+26)%26]-position)%26+26)%26;
     }
@@ -69,11 +69,8 @@ public class Rotor {
         return c - 'A';
     }
     
-	private void createBCipher() {
-		for(int i =0; i<26; i++)
-			bcipher[cipher[i]] = i;
-	}
-
-
-
+    private void createBCipher() {
+	for(int i =0; i<26; i++)
+            bcipher[cipher[i]] = i;
+    }
 }
