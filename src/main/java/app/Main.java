@@ -96,7 +96,7 @@ public final class Main {
 		return true;
 	}
 
-	/**
+	/*
 	 * Configure M according to the specification given on CONFIG, which must
 	 * have the format specified in the assignment.
 	 */
@@ -110,7 +110,7 @@ public final class Main {
 		M.configure(reflector, left, middle, right, setting);
 	}
 
-	/**
+	/*
 	 * Return the result of converting LINE to all upper case, removing all
 	 * blanks. It is an error if LINE contains characters other than letters and
 	 * blanks.
@@ -128,7 +128,7 @@ public final class Main {
 		return new String(cArray);
 	}
 
-	/**
+	/*
 	 * Print MSG in groups of five (except that the last group may have fewer
 	 * letters).
 	 */
@@ -160,7 +160,7 @@ public final class Main {
 		return r;
 	}
 
-	/**
+	/*
 	 * returns the numbered rotor from the roman numerals.
 	 * 
 	 * @returns the Rotor

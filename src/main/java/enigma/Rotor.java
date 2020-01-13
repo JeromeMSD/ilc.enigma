@@ -3,8 +3,8 @@ package enigma;
 public class Rotor {
 
     private int position;
-    private int[] cipher = new int[26];
-    private int[] bcipher = new int[26];
+    private int[] cipher = new int[26]; //Encryption
+    private int[] bcipher = new int[26]; //Encryption
     private int notch1 = -1;
     private int notch2 = -1;
 
@@ -53,7 +53,8 @@ public class Rotor {
         return ((bcipher[((e+position)%26+26)%26]-position)%26+26)%26;
     }
     
-    public void advance() {
+    //Problème de visibilité : que la machine qui touche les rotor : protected
+    protected void advance() {
         position = (position+1) % 26;
     }
     
@@ -61,6 +62,7 @@ public class Rotor {
         return (position == notch1 || position == notch2);
     }
 
+    //Static : accessible sans instancier les objets.
     protected static char toLetter(int p) {
         return (char)(p + 'A');
     }

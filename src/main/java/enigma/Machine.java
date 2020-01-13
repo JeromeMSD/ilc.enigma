@@ -14,7 +14,7 @@ public class Machine {
 		rightRotor = right;
 	}
 
-	public void setPositions(String setting) {
+	public void configurePositions(String setting) {
 		char[] charSettings = setting.toCharArray();
 		reflector.setPosition(Rotor.toIndex(charSettings[0]));
 		leftRotor.setPosition(Rotor.toIndex(charSettings[1]));
@@ -24,7 +24,7 @@ public class Machine {
 	
 	public void configure(Reflector reflector, Rotor left, Rotor middle, Rotor right, String setting) {
 		this.initRotors(reflector, left, middle, right);
-		this.setPositions(setting);
+		this.configurePositions(setting);
 
 	}
 
